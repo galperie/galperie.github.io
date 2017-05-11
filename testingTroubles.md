@@ -41,9 +41,6 @@ This was in general what our app was doing. So we broke that down to which part 
   ```
 
   * Test that the container reacted to user interactions correctly (given this button was clicked, then a new page was navigated to; given a form was submitted, an action was dispatched)
-
-
-
   * Test that the container's lifecycle methods [link to lifecycle methods in react] did the behavior expected
   * Test the reducer initialized state correctly, gave the correct new state based on actions, and the selectors we created returned the state as we expected.
 
