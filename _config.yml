@@ -16,13 +16,16 @@
 title: ellen galperin
 email: egalperi@thoughtworks.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Ellen graduated with a degree in Computer Science and a minor in
+  Film and Media studies at Lafayette College in spring 2015.
+  Currently she is resides in New York City and is working for
+  ThoughtWorks as a developer. When she is not playing Legend of
+  Zelda games or binging on Netflix, she can be found exploring the
+  New York food scene.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: 8bytewonder
+github_username:  galperie
 
 # Build settings
 markdown: kramdown
