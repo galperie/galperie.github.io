@@ -15,13 +15,12 @@
 # in the templates via {{ site.myvariable }}.
 title: ellen galperin
 email: egalperi@thoughtworks.com
-description: > # this means to ignore newlines until "baseurl:"
-  Ellen graduated with a degree in Computer Science and a minor in
-  Film and Media studies at Lafayette College in spring 2015.
-  Currently she is resides in New York City and is working for
-  ThoughtWorks as a developer. When she is not playing Legend of
-  Zelda games or binging on Netflix, she can be found exploring the
-  New York food scene.
+description: >
+  Ellen currently resides in New York City where she works for
+  ThoughtWorks as a developer. She has a passion for clear & concise code,
+  human centered design, and using technology as a tool for social and economic justice.
+  When she is not playing games on her 3DS or binging documentaries on Netflix, she can be found
+  exploring the New York food scene.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 8bytewonder
@@ -32,6 +31,7 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
+  - jemoji
 exclude:
   - Gemfile
   - Gemfile.lock

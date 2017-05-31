@@ -4,12 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Ellen currently resides in New York City where she works for ThoughtWorks as a developer. She has a passion for clear & concise code, human centered design, and using technology as a tool for social and economic justice. When she is not playing games on her 3DS or binging documentaries on Netflix, she can be found exploring the New York food scene.
 
-You can find the source code for the Jekyll new theme at:
+source code for the theme:
 {% include icon-github.html username="jekyll" %} /
 [minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
