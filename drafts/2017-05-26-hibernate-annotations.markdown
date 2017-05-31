@@ -1,9 +1,9 @@
----
+<!-- ---
 layout: post
 title:  "Hibernate Annotations in Spring :leaves:"
 date:   2017-05-31 11:35:02 -0400
 categories: hibernate spring java
----
+--- -->
 
 Spring is filled with annotations. It both makes your life easy and a living nightmare. Forget the right one and it'll break and cry and show only semi-useful error messages. Use the wrong one and it'll break and cry and show even less useful error messages. It can be tricky, but when used right it can save you from writing a whole lot of code, and, even better, having to think out complicated object relationships and try to weave it all together.
 
