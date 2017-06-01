@@ -5,14 +5,14 @@ date:   2017-05-31 11:35:02 -0400
 categories: hibernate spring java
 ---
 
-Spring is filled with annotations. It can make your life so much easier and at the same time, a living nightmare. Accidentally misplace an annotation? Spring will break and cry and show only semi-useful error messages. Use the wrong annotation altogether and you’ll have no luck deciphering those error messages. It can be tricky, but when used correctly it can save you from writing a whole lot of code and, even better, having to think out complicated object relationships and try to weave it all together.
-
-On a recent project I noticed that out of all the annotations my team struggled with, Hibernate annotations were by far the most difficult. Something about trying to take a very complicated relational database and figure out how to get hibernate to just do what we wanted to do, proved very difficult. (Granted some of the issues might've been from a very very complicated data schema and big design changes happening often, but I digress &#x1F910;)
-
-Since I noticed some of the documentation out there was a little hard to read, I thought I would try and make a clear and simple example on how to use these annotations.
-
 {:.highlightDarkEmphasis}
 **tldr;** in this article I cover these basic Hibernate annotations: `@Entity`, `@Table`, `@Column`, `@OneToOne`, `@OneToMany`. In a future follow up post, I will explain `@ManyToOne`, `@ManyToMany`, and `@SecondaryTable` (and maybe a few others).
+
+Spring is filled with annotations. It can make your life so much easier and at the same time, a living nightmare. Accidentally misplace an annotation? Spring will break and cry and show only semi-useful error messages. Use the wrong annotation altogether and you’ll have no luck deciphering those error messages. It can be tricky, but when used correctly it can save you from writing a whole lot of code and, even better, having to think out complicated object relationships and try to weave it all together.
+
+On a recent project I noticed that out of all the annotations my team struggled with, Hibernate annotations were by far the most difficult. Trying to take a very complicated relational database and figure out how to get hibernate to just do what we wanted to do proved very difficult. (Granted some of the issues might've been from a very very complicated data schema and big design changes happening often, but I digress &#x1F910;)
+
+Since I noticed some of the documentation out there was a little hard to read, I thought I would try and make a clear and simple example on how to use these annotations.
 
 ### Getting Started
 
