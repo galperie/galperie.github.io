@@ -455,8 +455,8 @@ mysql> select * from employee;
 
 ### Recap & What We Didn't Get To
 
-What we covered in this post was how to use hibernate to create your tables and specifically how to create the one-to-one/one-to-many relationship using annotations.
-This is by far not all hibernate can do and I want to continue with this post with examples of some more complicated annotations:
+In this post, we covered how to use hibernate to create your tables and specifically how to create the one-to-one/one-to-many relationship using annotations.
+This is just the tip of the iceberg of hibernate’s capabilities and I want to continue with this post with examples of some more complicated annotations:
 
 * ManyToMany
 * ManyToOne
