@@ -1,18 +1,18 @@
-<!-- ---
+---
 layout: post
 title:  "Hibernate Annotations in Spring :leaves:"
 date:   2017-05-31 11:35:02 -0400
 categories: hibernate spring java
---- -->
+---
 
-Spring is filled with annotations. It both makes your life easy and a living nightmare. Forget the right one and it'll break and cry and show only semi-useful error messages. Use the wrong one and it'll break and cry and show even less useful error messages. It can be tricky, but when used right it can save you from writing a whole lot of code, and, even better, having to think out complicated object relationships and try to weave it all together.
+  Spring is filled with annotations. It both makes your life easier and a living nightmare. Forget to put the right annotation in the right spot? Spring will break and cry and show only semi-useful error messages. Use the wrong one and it'll break and cry and show even less useful error messages. It can be tricky, but when used correctly it can save you from writing a whole lot of code and, even better, having to think out complicated object relationships and try to weave it all together.
 
 On a recent project I noticed that out of all the annotations my team struggled with, Hibernate annotations were by far the most difficult. Something about trying to take a very complicated relational database and figure out how to get hibernate to just do what we wanted to do, proved very difficult. (Granted some of the issues might've been from a very very complicated data schema and big design changes happening often, but I digress &#x1F910;)
 
-Since I noticed some of the documentation out there was a little hard to read, I thought I would try and make a clear and simple example on how to use these annotations. Here I will go through and illustrate a fairly simple situation that utilizes a few hibernate annotations.
+Since I noticed some of the documentation out there was a little hard to read, I thought I would try and make a clear and simple example on how to use these annotations.
 
 {:.highlightDarkEmphasis}
-**tldr;** in this article I cover basic Hibernate annotations: `@Entity`, `@Table`, `@Column`, `@OneToOne`, `@OneToMany`. In a future follow up post, I will explain `@ManyToOne`, `@ManyToMany`, and `@SecondaryTable` (and maybe a few others).
+**tldr;** in this article I cover these basic Hibernate annotations: `@Entity`, `@Table`, `@Column`, `@OneToOne`, `@OneToMany`. In a future follow up post, I will explain `@ManyToOne`, `@ManyToMany`, and `@SecondaryTable` (and maybe a few others).
 
 ### Getting Started
 
@@ -108,7 +108,7 @@ For our objects, let's start off with a basic coffee shop with only a name and a
 public class CoffeeShop {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue
   @Column(name="shop_id")
   private Long id;
 
@@ -148,6 +148,8 @@ public class CoffeeShop {...}
 private Long id;
 {% endhighlight %}
 
+{:.hiddenList}
+* Other than name, `@Column` also has some really useful modifiers. You can make the parameter unique, required, nullable, etc. Theres [a lot you can do with it](https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/Column.html).
 
 <br>
 If everything is working as it should, when we run the app and send a POST to [localhost:8080] with this as the body:
@@ -194,7 +196,7 @@ mysql> select * from coffee_shop;
 Our Coffee Shop is now up and running! Time to spice things up and add an owner &#x1F481;
 
 For this example we will say each coffee shop will only belong to *one* owner. And each owner will only have *one* coffee shop.
-So can you guess which annotation, we'll be using? `@OneToOne` :open_mouth: :exclamation:
+So can you guess which annotation, we'll be using? `@OneToOne` :open_mouth::exclamation:
 
 The owner will basically be the [same as the coffee shop](#coffeeShopExample), but with its own unique parameters.
 
@@ -206,7 +208,7 @@ The owner will basically be the [same as the coffee shop](#coffeeShopExample), b
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="owner_id")
     private Long id;
 
@@ -226,7 +228,7 @@ And now we'll update our coffee shop so that it has the owner.
 public class CoffeeShop {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="shop_id")
     private Long id;
 
@@ -243,7 +245,7 @@ public class CoffeeShop {
 
 * The addition of the `CascadeType.ALL` to the annotation says that the operation you are doing should cascade down (aka if we are creating a coffeeshop with an owner that doesn't exist, cascade and create that owner too; if you are deleting the coffeeshop, delete the owner too, etc). There are a [couple of options](https://docs.jboss.org/hibernate/jpa/2.1/api/javax/persistence/CascadeType.html) for when cascading should take place. *It's optional so if you do not want it to happen, don't include it.*
 
-:warning: In this case the relationship between owner and coffeeshop is :arrow_right: **uni-directional** (aka coffeeshop has a reference to its owner, but the owner doesn't have a reference to its coffeeshop). This is just a design decision, if you need the relationship to be :left_right_arrow: **bi-directional** (they both have a reference to each other) then you can use the parameter `mappedBy=""`. This will look the same in the database, really depends on the business logic and what data you want each object to have. So if in your app you want the owner be able to its coffee shop just add the following along with the changes we made to CoffeeShop:
+:warning: In this case the relationship between owner and coffeeshop is :arrow_right: **uni-directional** (aka coffeeshop has a reference to its owner, but the owner doesn't have a reference to its coffeeshop). This is just a design decision, if you need the relationship to be :left_right_arrow: **bi-directional** (they both have a reference to each other) then you can use the parameter `mappedBy=""`. This will look the same in the database, really depends on the business logic and what data you want each object to have. So if in your app you want the owner be able to get its coffee shop just add the following along with the changes we made to CoffeeShop:
 
 {% highlight java %}
 @Entity
@@ -253,7 +255,7 @@ public class CoffeeShop {
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="owner_id")
     private Long id;
 
@@ -318,9 +320,9 @@ mysql> select * from owner;
 1 row in set (0.00 sec)
 {% endhighlight %}
 
-### Adding Employees - @ManyToOne
+### Adding Employees: @OneToMany
 
-Each Coffee Shop can have *many* employees, but each employee can only work for *one* shop. This means we'll use the `@OneToMany` annotation :tada:
+*One* Coffee Shop can have *many* employees. This means we'll use the `@OneToMany` annotation :tada:
 
 Similar to CoffeeShop and Owner, we'll make an Employee :two_men_holding_hands:
 
