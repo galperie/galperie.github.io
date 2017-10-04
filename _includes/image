@@ -1,0 +1,2 @@
+{% capture imagePath %}{{ page.date | date: "%Y-%m-%d" }}-{{ page.title | slugify }}/{{ include.name }}{% endcapture %}
+![alt text](/assets/images/{{ imagePath }} "{{include.caption}}")
