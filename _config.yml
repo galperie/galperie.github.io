@@ -23,7 +23,7 @@ description: >
   exploring the New York food scene.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: 8bytewonder
+twitter_username: ellengalperin
 github_username:  galperie
 
 # Build settings
